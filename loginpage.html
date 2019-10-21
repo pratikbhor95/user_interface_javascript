@@ -1,0 +1,154 @@
+<!doctype html>
+<head>
+<title>
+Login
+</title>
+<style>
+
+table { cellspan:0; padding:20px;
+ border-style:solid;
+	
+
+ }
+ 
+
+ul {
+    list-style-type: none;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+
+body  {
+    background: url('simg.jpg');
+	
+	background-size: 100%  ;
+    
+}
+
+
+
+</style>
+<script>
+flag1 = false;
+flag2 = false;
+function username()
+{
+    var uname = document.getElementById('fname').value;
+    var u = localStorage.getItem("mail");
+    if(u == uname )
+
+    {
+        flag1 = true;
+        
+    }
+    
+}
+
+
+            function userpass()
+{
+    var pname = document.getElementById('pass').value;
+    
+    var myJSON = JSON.stringify(pname)    ;
+    var p = localStorage.getItem("spass")
+    
+    
+    if(myJSON == p )
+
+    {
+        flag2 = true;
+        
+    }
+    else{
+        alert('wrong password')
+    }
+}
+
+
+function validation()
+        {
+            if(flag1 == true && flag2 == true)
+            {
+                
+                
+                window.location = 'homepage.html';
+            }
+
+
+        }
+
+
+
+
+</script>
+</head>
+<body>
+<br><br><br><br><br><br>
+<div class="bg" >
+ <table align="center">
+<tr>
+<td><label><h3>Username</h3></label></td>
+<td><input type='text'name='fname ' id='fname'onblur = "username() " placeholder = 'Enter email Id' autofocus></td>
+</tr>
+<tr>
+
+<td><label><h3>password</h3>	</label></td>
+<td><input type='password'name='pass ' id='pass' onblur="userpass()" ></td>
+</tr>
+
+
+
+<td>
+<td ><input  type='submit'name='submit ' id='submit' onclick='validation()' ></td>
+</tr>
+
+
+
+
+
+</table>
+</div>
+
+<ul>
+  <li style="float: left;"><a href="firstpage.html">Home</a></li>
+  <li style="float: right;"><a class="active" >Login</a></li>
+  <li style="float: right;"><a href="signup.html">Sign Up</a></li>
+
+  
+  
+</ul>
+
+
+
+
+
+</body>
+</HTML>

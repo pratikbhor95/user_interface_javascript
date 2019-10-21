@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <title> Sign UP </title>
+<style>
+ table { padding:50px;
+ border-style:solid;
+	position: absolute;
+	top:10%;
+	left:40%;
+ 
+ 
+ //tr td { width:100%;}
+}
+ 
+
+ul {
+    list-style-type: none;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: #4CAF50;
+}
+
+
+body  {
+    background: url('wedbook.jpg');
+	
+	background-size: 100%  ;
+    
+}
+</style>
+
+<script type="text/javascript">
+
+	var valone=[];
+
+	var flag11 = false;
+	var flag12 = false;
+	var flag13 = false;
+	var flag14 = false;
+	var flag15 = false;
+	var flag16 = false;
+
+
+function checkfname()
+{
+	var a=document.getElementById("fname").value;
+    if(a.includes("@"))
+   {
+		
+
+		document.getElementById("fnamecheck").innerHTML =" ";
+		document.getElementById("fnamecheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+
+		}
+
+		else if(a.includes("#"))
+   {
+		
+
+		document.getElementById("fnamecheck").innerHTML =" ";
+		document.getElementById("fnamecheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+
+		}
+		else if(a.includes("$"))
+   {
+		
+
+		document.getElementById("fnamecheck").innerHTML =" ";
+		document.getElementById("fnamecheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+
+		}
+		else{
+		document.getElementById("fnamecheck").innerHTML =" ";
+		document.getElementById("fnamecheck").innerHTML ="<img src = 'download.png'width=20 height=20>";
+		 
+
+		flag11 = true;
+
+		}
+	}
+
+	
+function checklname()
+{
+	var b=document.getElementById("lname").value;
+    if(b.includes("@"))
+   {
+		
+
+		document.getElementById("lnamecheck").innerHTML =" ";
+		document.getElementById("lnamecheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+
+		}
+		else if(b.includes("#"))
+   {
+		
+
+		document.getElementById("lnamecheck").innerHTML =" ";
+		document.getElementById("lnamecheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+
+		}
+		else if(b.includes("$"))
+   {
+		
+
+		document.getElementById("lnamecheck").innerHTML =" ";
+		document.getElementById("lnamecheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+
+		}
+		else{
+			document.getElementById("lnamecheck").innerHTML =" ";
+		document.getElementById("lnamecheck").innerHTML ="<img src = 'download.png'width=20 height=20>";
+		 localStorage.setItem("lname",b);
+		flag12 = true;
+		
+		}
+	}
+	
+
+
+function checknum()
+{
+	var c = document.getElementById("mob").value;
+	
+     if(isNaN(c)==true)
+
+
+   {
+		
+
+		document.getElementById("numcheck").innerHTML =" ";
+		document.getElementById("numcheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+
+		}
+		
+		else{
+			document.getElementById("numcheck").innerHTML =" ";
+		document.getElementById("numcheck").innerHTML ="<img src = 'download.png'width=20 height=20>";
+		 localStorage.setItem("mob",c);
+		flag13 = true;
+		
+		}
+	
+	}
+
+function checkmail()
+{
+	var email = document.getElementById("mail").value;
+	var emailarray = ['@yahoo.com','@gmail.com','@rediff.com'];
+    if(email.includes(emailarray[0]) || email.includes(emailarray[1]) || email.includes(emailarray[2]))
+
+
+   {
+		document.getElementById("mailcheck").innerHTML =" ";
+		document.getElementById("mailcheck").innerHTML ="<img src = 'download.png'width=20 height=20>";
+		 localStorage.setItem("mail",email);
+		flag14 = true;
+
+		
+
+		}
+		
+		else{
+			document.getElementById("mailcheck").innerHTML =" ";
+		document.getElementById("mailcheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+		
+		}
+	}
+
+function checkpass()
+{	
+
+	var p = document.getElementById("pass").value;
+			//document.getElementById("repass").innerHTML = var p;
+			q = p.charAt(p[0]);
+
+			var length = p.length;
+			if(length > 7)
+			{
+			if( q !== q.toLowerCase())
+			{
+		  		document.getElementById("passcheck").innerHTML =" ";
+		  		flag15 = true;
+				document.getElementById("passcheck").innerHTML ="<img src = 'download.png'width=20 height=20>";
+				var myJSON = JSON.stringify(p);
+				document.getElementById("pass").innerHTML = "myJSON";
+
+				 localStorage.setItem("spass",p);
+
+				flag15 = true;
+				
+			}
+		
+
+				
+			}
+		
+		
+		else{
+			document.getElementById("passcheck").innerHTML =" ";
+		document.getElementById("passcheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+		
+		}
+	}
+
+function checkrepass()
+{	
+
+	var r = document.getElementById("repass").value;
+	var m = document.getElementById("pass").value;
+			
+			
+			
+			if( r == m)
+			{
+				document.getElementById("repasscheck").innerHTML =" ";
+				document.getElementById("repasscheck").innerHTML ="<img src = 'download.png'width=20 height=20>";
+
+				flag16 = true;
+
+			}
+			
+		
+		
+		else
+		{
+			document.getElementById("repasscheck").innerHTML =" ";
+			document.getElementById("repasscheck").innerHTML ="<img src = 'wrong.png'width=20 height=20>";
+			
+		
+		}
+	}
+function validation()
+		
+{
+	alert('success')
+
+	valone.push(document.getElementById('fname').value);
+	
+	localStorage.setItem('mytext',valone);
+	
+	
+		alert(localStorage.getItem('mytext',valone))
+		alert('success')
+		window.location = 'loginpage.html';
+	}
+/*
+
+
+	
+	//else{
+	//	alert('pease fill correct information');
+	}
+
+	
+
+
+
+}
+*/
+</script>
+</head>
+
+<body>
+<div align="center">
+<table width=15%  >
+   <tr>
+	<td> First Name  </td>
+  </tr>
+  <tr>
+	<td><form><input type=text id="fname"  onblur ="checkfname()"  autofocus> </form></td>
+	<td><p id="fnamecheck"></p></td>	
+  </tr>
+  <tr>
+	<td> Last Name </td>
+  <tr>
+	<td><input type=text id="lname" onblur ="checklname()"> </td>
+	<td><p id="lnamecheck"></p></td>
+  </tr>
+  <tr>
+	<td> Mobile Number </td>
+  <tr>
+	<td><input type=text id="mob" onblur="checknum()" > </td>
+	<td><p id="numcheck"></p></td>
+  </tr>
+  <tr>
+	<td> Email Id </td>
+  <tr>
+	<td><input type="text" id="mail" onblur ="checkmail()" > </td>
+	<td><p id="mailcheck"></p></td>
+  </tr>
+  <tr>
+	<td> Password </td>
+  <tr>
+	<td><input type="Password" id="pass" onblur="checkpass()" value = ""> </td>
+	<td><p id="passcheck"></p></td>
+  </tr>
+  <tr>
+	<td>Confirm Password </td>
+  <tr>
+	<td><input type="password" id="repass" onblur ="checkrepass()" > </td>
+	<td><p id="repasscheck"></p></td>
+  </tr>
+  <tr>
+	<td><input type="submit" name="submit" value="submit" onclick="validation()"></td>
+	
+  </tr>
+
+</table>
+</div>
+
+<ul>
+  
+ 	<li style="float: left;"><a href="firstpage.html">Home</a></li>
+	<li style="float: right;"><a href="loginpage.html">Login</a></li>
+  <li style="float: right;"><a class="active" >Sign Up</a></li>
+  
+  
+  
+  
+</ul>
+
+
+
+</body>
+</html>
